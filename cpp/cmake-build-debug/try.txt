@@ -1,0 +1,7 @@
+SZDG 0 0 0 0
+SZDG 0 1 0 0
+SZDG 1 0 0 1
+SZDG 1 1 1 2
+
+Y gaussian identity
+

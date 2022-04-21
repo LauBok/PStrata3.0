@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/boliu/Desktop/Research/PStrata-v3.0/cpp/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+sstream
+-
+map
+-
+set
+-
+vector
+-
+
