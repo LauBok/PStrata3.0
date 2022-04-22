@@ -1,6 +1,6 @@
 PSObject <- function(
   S.formula, Y.formula, Y.family, data, monotonicity, ER, trunc,
-  prior_intercept = prior_uniform(),
+  prior_intercept = prior_flat(),
   prior_coefficient = prior_normal(),
   prior_sigma = prior_inv_gamma(),
   prior_alpha = prior_inv_gamma(),
