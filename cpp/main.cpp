@@ -29,6 +29,7 @@ private:
     string Y_type, Y_family, Y_link;
     string func_family, func_link;
     vector<pair<string, string>> parameters;
+    vector<tuple<string, string, vector<double>>> prior;
 public:
     Data(const string& file_name) {
         fstream input(file_name);
@@ -45,6 +46,19 @@ public:
             }
             else if (ctrl == "Y") {
                 input >>this->Y_family >> this->Y_link;
+            }
+            else if (ctrl == "prior") {
+                string type, func;
+                input >> type >> func;
+                vector<double> tmp_param;
+                int n;
+                input >> n;
+                for (int i = 0; i < n; ++i){
+                    double param;
+                    input >> param;
+                    tmp_param.push_back(param);
+                }
+                prior.emplace_back(type, func, tmp_param);
             }
         }
         input.close();
@@ -98,7 +112,7 @@ public:
         }
         input.close();
         if (!str.empty())
-            str = "functions {\n" + str + "}";
+            str = "functions {\n" + str + "}\n";
         return str;
     }
 
@@ -160,6 +174,39 @@ public:
         string str_sp1 = to_string(S_max + 1);
         string str;
         str += "model {\n";
+
+        // prior
+        for (auto& prior_info : prior) {
+            string type = get<0>(prior_info);
+            string func = get<1>(prior_info);
+            vector<double> params = get<2>(prior_info);
+            string params_str;
+            for (auto param: params) {
+                if (!params_str.empty())
+                    params_str += ", ";
+                params_str += to_string(param);
+            }
+            if (type == "Intercept") {
+                str += "    beta_S[:, 1] ~ " + func + "(" + params_str + ");\n";
+                str += "    beta_G[:, 1] ~ " + func + "(" + params_str + ");\n";
+            }
+            else if (type == "Coefficient") {
+                str += "    beta_S[:, 2:PS] ~ " + func + "(" + params_str + ");\n";
+                str += "    beta_G[:, 2:PG] ~ " + func + "(" + params_str + ");\n";
+            }
+            else {
+                bool found = false;
+                for (auto& param : parameters)
+                    if (type == param.first) {
+                        found = true;
+                        break;
+                    }
+                if (found) {
+                    str += "    " + type + " ~ " + func + "(" + params_str + ");\n";
+                }
+            }
+        }
+
         str += "    for (n in 1:N) {\n";
         str += "        int length;\n";
         str += "        real log_prob[" + str_sp1 + "];\n";
@@ -238,13 +285,15 @@ public:
 };
 
 int main() {
-    Data data("try.txt");
+    Data data("try1.txt");
     data.print_info();
-    cout << data.to_stan_functions() << endl;
-    cout << data.to_stan_data() << endl;
-    cout << data.to_stan_transformed_data() << endl;
-    cout << data.to_stan_parameters() << endl;
-    cout << data.to_stan_model() << endl;
-    cout << data.to_stan_generated_quantities() << endl;
+    fstream output("try1.stan", std::fstream::out | std::fstream::trunc);
+    output << data.to_stan_functions() << endl;
+    output << data.to_stan_data() << endl;
+    output << data.to_stan_transformed_data() << endl;
+    output << data.to_stan_parameters() << endl;
+    output << data.to_stan_model() << endl;
+    output << data.to_stan_generated_quantities() << endl;
+    output.close();
     return 0;
 }
