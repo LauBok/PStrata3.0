@@ -66,9 +66,17 @@ write.txt <- function(Y.formula, Y.family, S, ER,
   for(name in prior_names){
     prior_curr <- eval(parse(text = paste0("prior_", name)))
     prior_args <- prior_curr$args
-    prior_line <- paste0("prior ", name, " ", prior_curr$name, " ",
-                         length(prior_args), " ",
-                         paste0(unlist(prior_args), collapse = " "))
+    if(prior_curr$name == "flat"){
+      prior_line <- paste0("prior ", name, " ", "uniform", " ",
+                           length(prior_args), " ",
+                           paste0(unlist(prior_args), collapse = " "))
+    } else{
+      prior_line <- paste0("prior ", name, " ", prior_curr$name, " ",
+                           length(prior_args), " ",
+                           paste0(unlist(prior_args), collapse = " "))
+    }
+    
+
     lines <- c(lines, prior_line)
   }
   
