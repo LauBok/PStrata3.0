@@ -158,4 +158,30 @@ Common examples of this form including the normal distribution where $Y_i \mid X
 The Bayesian model is completed by specifying prior distributions on $\boldsymbol{\beta}_s$, $\boldsymbol{\gamma}_g$ and $\boldsymbol{\theta}_g$.
 
 \section{Software interface}
+
+The software, which generates posterior samples using stan in the backend, has a user-friendly \textsf{R} interface accessible to users with different backgrounds.
+
+The core of the input is \texttt{S.model}, \texttt{Y.model} and \texttt{Y.family}, which specify the multinomial model $p(S_i = s\mid X_i)$ and the outcome model $p(Y_i\mid X_i, G_i = g)$. 
+
+\paragraph{(1) \texttt{S.model}}
+
+This argument is specified with the treatment assignment variable $Z$ and all of the binary post-treatment covariates $D_1$, $\dots$, $D_d$. Let $X_1, \dots, X_p$ be the covariates which the multinomial model is built upon. The \texttt{S.model} can be simply specified with syntax $$\texttt{Z + D1 + ... + Dd}\sim \texttt{X1 + ... + Xp}.$$
+
+\paragraph{(2) \texttt{Y.model}}
+
+Like \texttt{S.model}, this parameter specifies the outcome variable and important covariates to model the outcome. The syntax is as follows. $$\texttt{Y} \sim \texttt{X1 + ... + Xp}.$$
+
+\paragraph{(3) \texttt{Y.family}}
+
+This argument takes exactly the same convention as \texttt{family} defined in \textsf{R} base \texttt{glm()} function. For example, \texttt{Y.family = gaussian(link = "identity")} specifies a gaussian model where $Y_i\mid X_i, G_i = g \sim \mathcal{N}(X_i^\mathrm{T}\boldsymbol{\gamma}_g, \sigma_g^2)$. The additional parameter $\sigma_g^2$ here comes intrinsically with the specified \texttt{Y.family}. Similarly, $\alpha$ comes with Gamma family, $\lambda$ comes with inverse-gaussian family and $\theta$ comes with the Cox-survival family.
+
+The set of all strata $\mathcal{S}$ and whether to consider ER for each stratum are also important in specifying the correct mixture model. They are specified by \texttt{S} and \texttt{ER} respectively.
+
+\paragraph{(4) \texttt{S} and \texttt{ER}} The set of strata in consideration is given by this argument as a vector of stratum indices. The convention to index a stratum is as follows. Recall that $S = (D(0), D(1))$, where both $D(0)$ and $D(1)$ are elements of $\{0, 1\}^d$. Hence $S$ can be viewed as an element of $\{0, 1\}^{2d}$, or a $2d$-bit zero-one sequence. Then we index $S$ by the integer with the zero-one sequence as binary representation. The argument \texttt{ER} is also a vector containing all indices appearing in \texttt{S}, within which the ER assumption is admitted.
+
+Finally, we specify the prior distributions of all parameters.
+
+\paragraph{(5) \texttt{prior\_xxx}} There are six additional parameters for prior specification, including \texttt{prior\_intercept}, \texttt{prior\_coefficient}, \texttt{prior\_sigma}, \texttt{prior\_alpha}, \texttt{prior\_lambda} and \texttt{prior\_theta}. When applicable, these parameters can be specified to impose a certain prior on each kind of parameters.
+
+\section{Simulation}
 \end{document}
