@@ -69,6 +69,11 @@ data$Y <- dplyr::case_when(data$S == 1 ~ rnorm(n, 3, 1),
                            )
 
 write.csv(data, "test/no_covariates/data4.csv", row.names = F)
+write.csv(data, "data4.csv", row.names = F)
+
+# Y.formula <- Y ~ 1
+# S.formula_test <- Z + D1 ~ 1
+# stan_data_test <- get.stan.data(S.formula = S.formula_test, Y.formula = Y.formula, data = data)
 
 Y.formula <- Y ~ 1
 S.formula <- Z + D1 + D2 ~ 1
