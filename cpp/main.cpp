@@ -186,13 +186,15 @@ public:
                     params_str += ", ";
                 params_str += to_string(param);
             }
+            if (func == "uniform")
+                continue;
             if (type == "intercept") {
                 str += "    beta_S[:, 1] ~ " + func + "(" + params_str + ");\n";
                 str += "    beta_G[:, 1] ~ " + func + "(" + params_str + ");\n";
             }
             else if (type == "coefficient") {
-                str += "    beta_S[:, 2:PS] ~ " + func + "(" + params_str + ");\n";
-                str += "    beta_G[:, 2:PG] ~ " + func + "(" + params_str + ");\n";
+                str += "    to_vector(beta_S[:, 2:PS]) ~ " + func + "(" + params_str + ");\n";
+                str += "    to_vector(beta_G[:, 2:PG]) ~ " + func + "(" + params_str + ");\n";
             }
             else {
                 bool found = false;
@@ -212,7 +214,7 @@ public:
         str += "        real log_prob[" + str_sp1 + "];\n";
         str += "        log_prob[1] = 0;\n";
         str += "        for (s in 2:" + str_sp1 + ") {\n";
-        str += "            log_prob[s] = XS[n] * beta_S[s - 1];\n";
+        str += "            log_prob[s] = XS[n] * beta_S[s - 1]';\n";
         str += "        }\n";
         bool b_else = false;
         for (auto &p : SZDG_table) {
@@ -263,9 +265,11 @@ public:
         str += "    vector[" + G_str + "] mean_effect;\n";
         str += "    {\n";
         str += "        matrix[N, " + G_str + "] expected_mean = XG * beta_G';\n";
-        str += "        matrix[N, " + S_str + "] log_prob = XS * beta_S';\n";
+        str += "        matrix[N, " + S_str + "] log_prob;\n";
         str += "        vector[" + S_str + "] denom;\n";
         str += "        vector[" + G_str + "] numer;\n";
+        str += "        log_prob[:, 1] = 0 * log_prob[:, 1];\n";
+        str += "        log_prob[:, 2:" + S_str + "] = XS * beta_S';\n";
         str += "        for (n in 1:N) {\n";
         str += "            log_prob[n] -= log_sum_exp(log_prob[n]);\n";
         str += "        }\n";
