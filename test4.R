@@ -80,6 +80,7 @@ test_p2s5c0_new <- rstan::stan(file = "test/new/1_test_p2s5c0.stan", data = stan
                            iter = 1000, chains = 6, cores = 6)
 
 test_p2s5c0_new
+saveRDS(test_p2s5c0_new, file = "test/new/1_test_p2s5c0.Rds")
 
 exp(c(0, 0.24, -0.38, 0.93, -0.11))/sum(exp(c(0, 0.24, -0.38, 0.93, -0.11)))
 
