@@ -36,15 +36,15 @@ parameters {
 model {
     beta_S[:, 1] ~ normal(0.000000, 1.000000);
     beta_G[:, 1] ~ normal(0.000000, 1.000000);
-    beta_S[:, 2:PS] ~ normal(0.000000, 1.000000);
-    beta_G[:, 2:PG] ~ normal(0.000000, 1.000000);
+    to_vector(beta_S[:, 2:PS]) ~ normal(0.000000, 1.000000);
+    to_vector(beta_G[:, 2:PG]) ~ normal(0.000000, 1.000000);
     sigma ~ inv_gamma(0.100000, 0.100000);
     for (n in 1:N) {
         int length;
         real log_prob[6];
         log_prob[1] = 0;
         for (s in 2:6) {
-            log_prob[s] = XS[n] * beta_S[s - 1];
+            log_prob[s] = XS[n] * beta_S[s - 1]';
         }
         if (Z[n] == 0 && D[n] == 0)
             length = 3;
@@ -99,9 +99,11 @@ generated quantities {
     vector[8] mean_effect;
     {
         matrix[N, 8] expected_mean = XG * beta_G';
-        matrix[N, 6] log_prob = XS * beta_S';
+        matrix[N, 6] log_prob;
         vector[6] denom;
         vector[8] numer;
+        log_prob[:, 1] = 0 * log_prob[:, 1];
+        log_prob[:, 2:6] = XS * beta_S';
         for (n in 1:N) {
             log_prob[n] -= log_sum_exp(log_prob[n]);
         }
