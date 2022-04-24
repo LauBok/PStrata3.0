@@ -48,8 +48,7 @@ write.txt <- function(Y.formula, Y.family, S, ER,
     D1 <- strtoi(S_bin1, base = 2)
     
     line0 <- paste0("SZDG ", S_line, " 0 ", D0, " ", G_line)
-    
-    S_line <- S_line + 1
+
     if(!stratum %in% ER) G_line <- G_line + 1
     
     line1 <- paste0("SZDG ", S_line, " 1 ", D1, " ", G_line)
