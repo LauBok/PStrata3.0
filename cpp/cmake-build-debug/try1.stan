@@ -36,6 +36,7 @@ model {
     beta_S[:, 2:PS] ~ normal(0.000000, 1.000000);
     beta_G[:, 2:PG] ~ normal(0.000000, 1.000000);
     sigma ~ inv_gamma(1.000000, 1.000000);
+    
     for (n in 1:N) {
         int length;
         real log_prob[5];
@@ -97,6 +98,7 @@ generated quantities {
         matrix[N, 5] log_prob = XS * beta_S';
         vector[5] denom;
         vector[7] numer;
+
         for (n in 1:N) {
             log_prob[n] -= log_sum_exp(log_prob[n]);
         }
