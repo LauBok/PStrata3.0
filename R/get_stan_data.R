@@ -31,13 +31,20 @@ get.stan.data <- function(S.formula, Y.formula, data){
   prse_fml_S <- parse.formula_new(S.formula, data)
   prse_fml_Y <- parse.formula_new(Y.formula, data)
   length_S <- length(prse_fml_S$response)
-  
+
+  D_bin <- dplyr::pull(data, prse_fml_S$response[2])
+  if(length_S > 2){
+    for(i in 3:length_S){
+      D_bin <- 2 * D_bin + dplyr::pull(data, prse_fml_S$response[i])
+    }
+  }
+
   df <- list(
     N = nrow(data), 
     PS = ncol(prse_fml_S$model_matrix),
     PG = ncol(prse_fml_Y$model_matrix),
     Z = dplyr::pull(data, prse_fml_S$response[1]),
-    D = dplyr::select(data, prse_fml_S$response[2:length_S]),
+    D = D_bin,
     Y = dplyr::pull(data, prse_fml_Y$response[1]),
     XS = prse_fml_S$model_matrix,
     XG = prse_fml_Y$model_matrix
