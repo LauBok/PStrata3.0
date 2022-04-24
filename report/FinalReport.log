@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.28)  23 APR 2022 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.28)  23 APR 2022 21:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -596,26 +596,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--98
 
  []
 
-[1
+
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+ [1
 
 
-{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./FinalReport.aux)
+{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (27.57726pt too wide) detected at line 151
+[][]
+ []
+
+[3] (./FinalReport.aux)
 Package rerunfilecheck Info: File `FinalReport.out' has not changed.
-(rerunfilecheck)             Checksum: 2798B286FC4111D8BE90EBE4A1E0F439;186.
+(rerunfilecheck)             Checksum: 075EEA72CA3098D2B3226510931ABDAB;390.
  ) 
 Here is how much of TeX's memory you used:
- 15512 strings out of 478579
- 238208 string characters out of 5857451
- 598342 words of memory out of 5000000
- 33116 multiletter control sequences out of 15000+600000
- 425553 words of font info for 94 fonts, out of 8000000 for 9000
+ 15600 strings out of 478579
+ 239233 string characters out of 5857451
+ 600645 words of memory out of 5000000
+ 33146 multiletter control sequences out of 15000+600000
+ 433154 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,8n,80p,1350b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on FinalReport.pdf (1 page, 60066 bytes).
+ 72i,9n,80p,1350b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on FinalReport.pdf (3 pages, 186394 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 26641 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 32289 words of extra memory for PDF output out of 35830 (max. 10000000)
 

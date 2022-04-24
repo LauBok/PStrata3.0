@@ -186,11 +186,11 @@ public:
                     params_str += ", ";
                 params_str += to_string(param);
             }
-            if (type == "Intercept") {
+            if (type == "intercept") {
                 str += "    beta_S[:, 1] ~ " + func + "(" + params_str + ");\n";
                 str += "    beta_G[:, 1] ~ " + func + "(" + params_str + ");\n";
             }
-            else if (type == "Coefficient") {
+            else if (type == "coefficient") {
                 str += "    beta_S[:, 2:PS] ~ " + func + "(" + params_str + ");\n";
                 str += "    beta_G[:, 2:PG] ~ " + func + "(" + params_str + ");\n";
             }
