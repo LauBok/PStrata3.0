@@ -1,7 +1,7 @@
-prior_uniform <- function() {
+prior_flat <- function() {
   return (
     list(
-      name = "uniform",
+      name = "flat",
       type = "real",
       args = list(),
       call = NULL

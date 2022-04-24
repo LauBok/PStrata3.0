@@ -438,7 +438,7 @@ print.summary.PSSummary.survival <- function(summary.PSsummary) {
 }
 
 PStrata <- function(S.formula, Y.formula, Y.family, data, monotonicity = "default", ER = c(), trunc = FALSE, 
-               prior_intercept = prior_uniform(),
+               prior_intercept = prior_flat(),
                prior_coefficient = prior_normal(),
                prior_sigma = prior_inv_gamma(),
                prior_alpha = prior_inv_gamma(),
