@@ -16,8 +16,8 @@
 
 set.seed(0)
 
-data <- read.csv("test/data.csv")
-n <- nrow(data)
+n <- 10000
+data <- list()
 
 get_one <- function(log_p1, log_p2, log_p3, log_p4, log_p5) {
   m <- max(log_p1, log_p2, log_p3, log_p4, log_p5, na.rm = T)
@@ -76,10 +76,11 @@ S.formula <- Z + D1 + D2 ~ 1
 data <- read.csv("test/no_covariates/data4.csv")
 stan_data <- get.stan.data(S.formula = S.formula, Y.formula = Y.formula, data = data)
 
-test_p2s5c0 <- rstan::stan(file = "test/new/1_test_p2s5c0.stan", data = stan_data,
+test_p2s5c0_new <- rstan::stan(file = "test/new/1_test_p2s5c0.stan", data = stan_data,
                            iter = 1000, chains = 6, cores = 6)
 
-test_p2s5c0
+test_p2s5c0_new
+saveRDS(test_p2s5c0_new, file = "test/new/1_test_p2s5c0.Rds")
 
 exp(c(0, 0.24, -0.38, 0.93, -0.11))/sum(exp(c(0, 0.24, -0.38, 0.93, -0.11)))
 
