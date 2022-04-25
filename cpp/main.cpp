@@ -268,7 +268,7 @@ public:
         str += "        matrix[N, " + S_str + "] log_prob;\n";
         str += "        vector[" + S_str + "] denom;\n";
         str += "        vector[" + G_str + "] numer;\n";
-        str += "        log_prob[:, 1] = 0 * log_prob[:, 1];\n";
+        str += "        log_prob[:, 1] = rep_vector(0, N);\n";
         str += "        log_prob[:, 2:" + S_str + "] = XS * beta_S';\n";
         str += "        for (n in 1:N) {\n";
         str += "            log_prob[n] -= log_sum_exp(log_prob[n]);\n";

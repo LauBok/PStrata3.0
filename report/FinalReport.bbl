@@ -1,0 +1,28 @@
+\begin{thebibliography}{}
+
+\bibitem[Angrist and Imbens, 1995]{doi:10.1080/01621459.1995.10476535}
+Angrist, J.~D. and Imbens, G.~W. (1995).
+\newblock Two-stage least squares estimation of average causal effects in
+  models with variable treatment intensity.
+\newblock {\em Journal of the American Statistical Association},
+  90(430):431--442.
+
+\bibitem[Angrist et~al., 1996]{10.2307/2291629}
+Angrist, J.~D., Imbens, G.~W., and Rubin, D.~B. (1996).
+\newblock Identification of causal effects using instrumental variables.
+\newblock {\em Journal of the American Statistical Association},
+  91(434):444--455.
+
+\bibitem[Imbens et~al., 2000]{11546}
+Imbens, G., Hirano, K., Rubin, D., and Zhou, X.-H. (2000).
+\newblock Assessing the effect of an influenza vaccine in an encouragement
+  design.
+\newblock {\em Biostatistics}, 1(1):69--88.
+
+\bibitem[Mattei et~al., 2013]{10.1214/13-AOAS674}
+Mattei, A., Li, F., and Mealli, F. (2013).
+\newblock {Exploiting multiple outcomes in Bayesian principal stratification
+  analysis with application to the evaluation of a job training program}.
+\newblock {\em The Annals of Applied Statistics}, 7(4):2336 -- 2360.
+
+\end{thebibliography}

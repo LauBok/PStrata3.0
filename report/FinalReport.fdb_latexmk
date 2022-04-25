@@ -1,9 +1,17 @@
 # Fdb version 3
-["pdflatex"] 1650782125 "c:/Users/boliu/Desktop/Research/PStrata-v3.0/report/FinalReport.tex" "FinalReport.pdf" "FinalReport" 1650782132
-  "FinalReport.aux" 1650782127 2256 442d95aea75d3b62c8b4cf1e6cb63bf6 "pdflatex"
-  "FinalReport.out" 1650782127 483 ef0cd70915783cc91dfdf70980649082 "pdflatex"
-  "FinalReport.tex" 1650782131 15425 266d72bdf1358c16a1726f46ea21cdd7 ""
-  "c:/Users/boliu/Desktop/Research/PStrata-v3.0/report/FinalReport.tex" 1650782131 15425 266d72bdf1358c16a1726f46ea21cdd7 ""
+["bibtex FinalReport"] 1650849307 "FinalReport.aux" "FinalReport.bbl" "FinalReport" 1650849310
+  "FinalReport.aux" 1650849309 3834 cc48ca10c0e4842a52d08602787f535b "pdflatex"
+  "c:/texlive/2021/texmf-dist/bibtex/bst/base/apalike.bst" 1635450576 24635 604dafcc79f521a11ea73e506e1fbd98 ""
+  "ref.bib" 1650849289 3443 f90419ad48014f9c6b6ccbbb30c86228 ""
+  (generated)
+  "FinalReport.bbl"
+  "FinalReport.blg"
+["pdflatex"] 1650849308 "c:/Users/boliu/Desktop/Research/PStrata-v3.0/report/FinalReport.tex" "FinalReport.pdf" "FinalReport" 1650849310
+  "FinalReport.aux" 1650849309 3834 cc48ca10c0e4842a52d08602787f535b "pdflatex"
+  "FinalReport.bbl" 1650849308 1168 c313247fde4bbfdd753ef91531cfe6d4 "bibtex FinalReport"
+  "FinalReport.out" 1650849309 816 6815aa5bd9f920c10ba377004babf2ef "pdflatex"
+  "FinalReport.tex" 1650849301 22358 c73b4ad0bd35eef131074dc05e02d642 ""
+  "c:/Users/boliu/Desktop/Research/PStrata-v3.0/report/FinalReport.tex" 1650849301 22358 c73b4ad0bd35eef131074dc05e02d642 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1635451738 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1635451077 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1635452229 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -141,9 +149,9 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1635456097 4401551 5ba9eaeb3d6050afa3135f1abcf2569c ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1635456201 2805241 0e9d7e831dc33dc051097565d61cd9e0 ""
   "c:/texlive/2021/texmf.cnf" 1635456078 713 e69b156964470283e0530f5060668171 ""
-  "finalreport.sty" 1642722650 10977 34b0a5d1c044d39c1ab9775072fdf14d ""
+  "finalreport.sty" 1650841961 10983 07ec4520be137eb2da720dcca3d6a655 ""
   (generated)
-  "FinalReport.out"
   "FinalReport.aux"
-  "FinalReport.log"
   "FinalReport.pdf"
+  "FinalReport.log"
+  "FinalReport.out"
